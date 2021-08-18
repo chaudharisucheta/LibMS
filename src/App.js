@@ -1,31 +1,25 @@
-// import logo from './logo.svg';
-import './App.css';
-import Login from './Components/Login';
-import Index from './Components/Index';
-import { BrowserRouter as Router, Route, Switch, Link}  from 'react-router-dom';
-import Visitors from './Components/Visitors';
-import Home from './Components/Home';
-import AddVisitor from './Components/AddVisitor';
+import "./App.css";
+import Login from "./Components/Login";
+import Index from "./Components/Index";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./Components/Home";
 
 function App() {
   return (
     <div>
-    <Router>
-         
-         <div>
-           <Switch>
-             <Route path = "/" exact component = {Login}></Route>
-             <Route path = "/home" component = {Home}></Route>
-             <Route path = "/visitors" component = {Visitors}></Route>
-             <Route path = "/addvisitor" component = {AddVisitor}></Route>
-
-           </Switch>
-           </div>
-    </Router>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login}></Route>
+          <div>
+            <Home />
+          </div>
+        </Switch>
+      </Router>
     </div>
   );
 
-      {/* <---this is login---->
+  {
+    /* <---this is login---->
       <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
@@ -64,9 +58,8 @@ function App() {
             </div>
         </div>
     </div>
-    </div> */}
-    
-  
+    </div> */
+  }
 }
 
 export default App;

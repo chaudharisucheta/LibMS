@@ -1,95 +1,33 @@
-import React, { Component } from 'react';
-import Visitors from './Visitors';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import AddVisitor from './AddVisitor';
+        import React, { Component } from 'react';
+        import Visitors from './Visitors';
+        import {  Route,  Switch } from "react-router-dom";
+        import AddVisitor from './AddVisitor';
+        import Sidebar from './Sidebar';
+        import Navbar from './Navbar';
 
-class Home extends Component {
-    render() {
-        return (
-            <div>
-                <div class="container-fluid">
-            <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega navbar-expand-md"
-    role="navigation">
-        <div class = "nav-head text-center">
-        
-      
-      <span class=" login-title ">LIB MS</span>
-    
-        </div>
-        <div class="nav-2-head">
-        <div class="input-group rounded search">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-    aria-describedby="search-addon" />
-    
-  
-</div>
+        class Home extends Component {
 
-        
-        </div>
-        <div class = "navbar-right">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbar-list-4">
-    
-        <a class="nav-link dropdown-toggle admin" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="https://www.pngitem.com/pimgs/m/226-2260470_transparent-admin-icon-png-admin-logo-png-png.png" width="40" height="35" class="rounded-circle"/>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <li><button class="dropdown-item" type="button">Action</button></li>
-    <li><button class="dropdown-item" type="button">Another action</button></li>
-    <li><button class="dropdown-item" type="button">Something else here</button></li>
-  </ul>
-        
-  </div>
-</div>
-    </nav>
-            <div class="p-3 flextext-white bg-dark w-64 mt-10 h-screen body-content ">
-                
-    
-    <ul class="nav nav-pills flex-column mb-auto ">
-      <li class="nav-item">
-        <a href="#" class="nav-link " aria-current="page">
-          
-          Home
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link "  aria-current="page">
-          
-          Dashboard
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/visitors" class="nav-link " aria-current="page">
-          
-          Orders
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link " aria-current="page">
-          
-          Products
-        </a>
-      </li>
-      
-    </ul>
-    </div>
-                <div className = "body-content-2  ">
-                   
-                   {/* <Visitors/> */}
-                   <AddVisitor/>
-
-                </div>
-            
+            render() {
+                return (
+                  <>
+            <div class="container-fluid">
+                  <Navbar/>  
             </div>
-        
-            
-               
-            
+            <div className="row">
+              <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <Sidebar/>
+              </div>
+              <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <Switch>
+              <Route path="/visitors" component={Visitors}></Route>
+              <Route path="/addvisitor" component={AddVisitor}></Route>
+              </Switch>
+              </div>
             </div>
+          </>     
+                    
         );
-    }
-}
+            }
+        }
 
-export default Home;
+        export default Home;
