@@ -1,32 +1,21 @@
-// import logo from './logo.svg';
-import './App.css';
-import Login from './Components/Login';
-import Index from './Components/Index';
-import { BrowserRouter as Router, Route, Switch, Link}  from 'react-router-dom';
-import Visitors from './Components/Visitors';
-import Home from './Components/Home';
-import AddVisitor from './Components/AddVisitor';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div>
-    <Router>
-         
-         <div>
-           <Switch>
-             <Route path = "/" exact component = {Login}></Route>
-             <Route path = "/home" component = {Home}></Route>
-             <Route path = "/visitors" component = {Visitors}></Route>
-             <Route path = "/addvisitor" component = {AddVisitor}></Route>
+class Login extends Component {
+    constructor(props) {
+        super(props)
 
-           </Switch>
-           </div>
-    </Router>
-    </div>
-  );
+        
+        this.goToIndex = this.goToIndex.bind(this);
+    }
 
-      {/* <---this is login---->
-      <div class="container">
+
+    goToIndex(){
+        this.props.history.push('/home');
+    }
+    render() {
+        return (
+            <div>
+                <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
             <div class="col-lg-6 col-md-8 login-box">
@@ -54,7 +43,7 @@ function App() {
                                     
                                 </div>
                                 <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                    <button type="submit" class="btn btn-outline-primary" onClick = {this.goToIndex}>LOGIN</button>
                                 </div>
                             </div>
                         </form>
@@ -64,9 +53,10 @@ function App() {
             </div>
         </div>
     </div>
-    </div> */}
     
-  
+            </div>
+        );
+    }
 }
 
-export default App;
+export default Login;
